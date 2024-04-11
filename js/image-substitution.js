@@ -1,7 +1,7 @@
 import { showsStatusSending } from './form-messages.js';
 
 const START_NUMBER = 0;
-const FILE_TYPES = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/webp'];
+const TYPES_OF_IMAGES = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/webp'];
 const ALLOWED_FILES = 'Загрузите .jpg, .jpeg, .png, .gif, .webp';
 const effectsList = document.querySelector('.effects__list');
 const effectsListChildren = effectsList.children;
@@ -16,7 +16,7 @@ const imageSubstitution = (photoEditForm, uploadFileControl, currentImage, imgUp
 
   const currentFile = uploadFileControl.files[0];
   const currentFileType = currentFile.type;
-  const allowedFileTypes = FILE_TYPES.includes(currentFileType);
+  const allowedFileTypes = TYPES_OF_IMAGES.includes(currentFileType);
 
   if (allowedFileTypes) {
     const srcImage = URL.createObjectURL(currentImage[0]);

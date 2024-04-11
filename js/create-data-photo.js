@@ -19,10 +19,10 @@ const createDataPhoto = (data, currentId, bigPicture) => {
   });
 };
 
-const getCommentsById = (data, currentId, currentCommentary) => {
+const getCommentsById = (data, currentId, currentCommentaries) => {
   const arrayOfComments = data[currentId].comments;
   arrayOfComments.forEach((element) => {
-    currentCommentary.push(element);
+    currentCommentaries.push(element);
   });
 };
 
