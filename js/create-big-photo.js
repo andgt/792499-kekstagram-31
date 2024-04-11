@@ -12,7 +12,7 @@ const createBigPhoto = (data) => {
   const commentsLoaderBtn = bigPicture.querySelector('.comments-loader');
   const totalComments = bigPicture.querySelector('.social__comment-total-count');
   const currentCommentsCount = bigPicture.querySelector('.social__comment-shown-count');
-  const currentCommentary = [];
+  const currentCommentaries = [];
   let currentQuantityMessage = 0;
 
   socialCommentsList.innerHTML = '';
@@ -25,7 +25,7 @@ const createBigPhoto = (data) => {
   };
 
   const loadedCommentary = () => {
-    const loadedArrayCommentary = currentCommentary.slice(currentQuantityMessage, currentQuantityMessage + COMMENTS_COUNT);
+    const loadedArrayCommentary = currentCommentaries.slice(currentQuantityMessage, currentQuantityMessage + COMMENTS_COUNT);
     loadedArrayCommentary.forEach((currentComments) => {
       createCommentsTemplate(bigPicture, currentComments);
       currentCommentsCount.textContent = socialCommentsList.children.length;
@@ -65,7 +65,7 @@ const createBigPhoto = (data) => {
     pictureCancel.addEventListener('click', onClosePicture);
     document.addEventListener('keydown', onDocumentKeydown);
 
-    getCommentsById(data, currentId, currentCommentary);
+    getCommentsById(data, currentId, currentCommentaries);
 
     loadedCommentary();
     if (Number(totalComments.textContent) <= COMMENTS_COUNT) {
@@ -82,7 +82,7 @@ const createBigPhoto = (data) => {
     pictureCancel.removeEventListener('click', onClosePicture);
     document.removeEventListener('keydown', onDocumentKeydown);
     commentsLoaderBtn.removeEventListener('click', addedNextCommentaries);
-    currentCommentary.length = 0;
+    currentCommentaries.length = 0;
     socialCommentsList.innerHTML = '';
     currentQuantityMessage = 0;
   }
